@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  ai_backend:
+    build: ./ai_backend
+    ports:
+      - "8001:8001"
+    volumes:
+      - ./ai_backend/output:/app/output
+  ui_backend:
+    build: ./ui_backend
+    ports:
+      - "8000:8000"
+    depends_on:
+      - ai_backend
